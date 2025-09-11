@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Réserver une table{% endblock %}
+{% block content %}
+<div class="container mt-5">
+	<h1 class="mb-4">Réserver une table</h1>
+	<form>
+		<div class="mb-3">
+			<label for="nom" class="form-label">Nom</label>
+			<input type="text" class="form-control" id="nom" name="nom" required>
+		</div>
+		<div class="mb-3">
+			<label for="email" class="form-label">Email</label>
+			<input type="email" class="form-control" id="email" name="email" required>
+		</div>
+		<div class="mb-3">
+			<label for="nombre_personnes" class="form-label">Nombre de personnes</label>
+			<input type="number" class="form-control" id="nombre_personnes" name="nombre_personnes" min="1" required>
+		</div>
+		<div class="mb-3">
+			<label for="date" class="form-label">Date</label>
+			<input type="date" class="form-control" id="date" name="date" required>
+		</div>
+		<button type="submit" class="btn btn-success">Réserver</button>
+	</form>
+</div>
+{% endblock %}
