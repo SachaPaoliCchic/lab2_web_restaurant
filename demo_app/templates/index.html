@@ -1,11 +1,50 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Accueil{% endblock %}
+
 {% block content %}
-<div class="container mt-5">
-	<h1 class="mb-4">Bienvenue au restaurant</h1>
-	<div class="d-flex gap-3">
-		<a href="{% url 'menu' %}" class="btn btn-primary">Voir le menu</a>
-		<a href="{% url 'reservation-client' %}" class="btn btn-success">Réserver une table</a>
-	</div>
+<style>
+    .container {
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    main {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .navbar {
+        margin-bottom: 0 !important;
+    }
+    
+    .fullscreen-bg {
+        background-image: url('{% static "img/pizzeria.jpg" %}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: calc(100vh - 86px); /* Hauteur totale moins la navbar */
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .bottom-overlay {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+    }
+</style>
+
+<div class="fullscreen-bg">
+    <div class="bottom-overlay">
+        <a href="{% url 'menu' %}" class="btn btn-primary btn-lg">About us</a>
+    </div>
 </div>
 {% endblock %}

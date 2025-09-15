@@ -24,7 +24,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
                 <img src="{% static 'img/logo_pizza-removebg-preview.png' %}" alt="Logo" style="height:70px; margin-right:10px;">
-                Pizza De La Mama
+                Pizza De La Mamma
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'menu' %}">Menu</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item2">
                         <a class="nav-link" href="{% url 'reservation-client' %}">Réserver</a>
                     </li>
                 </ul>
@@ -48,14 +48,15 @@
         </div>
     </main>
 
-    <footer class="bg-light py-3 mt-5">
-        <div class="container text-center">
-            <p class="mb-0">Copyright &copy; 2025 Nom du Restaurant</p>
-        </div>
-    </footer>
-
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
+
+<style>
+    .nav-item2 {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+</style>
