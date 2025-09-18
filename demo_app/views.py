@@ -76,6 +76,19 @@ def reservation_express_view(request):
         return redirect('reservation-express')
     return render(request, 'reservation_express.html', {'tables': tables})
 
+def MesreservationsView(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    client = Client.objects.filter(email=request.user.email).first()
+    if request.method == 'POST':
+        delete_id = request.POST.get('delete_id')
+        if delete_id:
+            Reservation.objects.filter(id=delete_id, client=client).delete()
+            messages.success(request, "Réservation supprimée.")
+            return redirect('mes-reservations')
+    reservations = Reservation.objects.filter(client=client).order_by('-date') if client else []
+    return render(request, 'mes_reservations.html', {'reservations': reservations})
+
 def signup_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')

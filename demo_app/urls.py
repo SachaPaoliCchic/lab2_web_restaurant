@@ -7,6 +7,7 @@ urlpatterns = [
     path('reservation/', views.reservation_client_view, name="reservation-client"),  # Formulaire client
     path('reservation-express/', views.reservation_express_view, name="reservation-express"),  # Réservation express
     path('about/', views.AboutView.as_view(), name="about"),  # Page "À propos"
+    path('mes-reservations/', views.MesreservationsView, name="mes-reservations"),  # Page "Mes réservations"
     path('signup/', views.signup_view, name="signup"),
     path('login/', views.login_view, name="login"),
     path('logout/', views.logout_view, name="logout"),
