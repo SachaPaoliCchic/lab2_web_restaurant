@@ -6,4 +6,7 @@ urlpatterns = [
     path('menu/', views.MenuView.as_view(), name="menu"),  # Page du menu
     path('reservation/', views.reservation_client_view, name="reservation-client"),  # Formulaire client
     path('about/', views.AboutView.as_view(), name="about"),  # Page "À propos"
+    path('signup/', views.signup_view, name="signup"),
+    path('login/', views.login_view, name="login"),
+    path('logout/', views.logout_view, name="logout"),
 ]

@@ -4,10 +4,8 @@
 
 {% block content %}
 <style>
-    .container {
-        max-width: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
+    .navbar {
+        margin-bottom: 0 !important;
     }
     
     main {
@@ -15,22 +13,21 @@
         padding: 0 !important;
     }
     
-    .navbar {
-        margin-bottom: 0 !important;
-    }
-    
     .fullscreen-bg {
         background-image: url('{% static "img/pizzeria.jpg" %}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        height: calc(100vh - 86px); /* Hauteur totale moins la navbar */
+        height: calc(100vh - 86px);
         width: 100vw;
-        margin-left: calc(-50vw + 50%);
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
     }
     
     .bottom-overlay {
