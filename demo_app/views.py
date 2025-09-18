@@ -5,6 +5,7 @@ from .models import Client, Table, Reservation
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your views here.
 
@@ -54,6 +55,26 @@ def reservation_client_view(request):
             messages.error(request, 'Aucune table disponible pour cette date et ce nombre de personnes.')
     
     return render(request, 'reservation_client.html')
+
+def reservation_express_view(request):
+    today = timezone.localdate()
+    tables = Table.objects.exclude(reservation__date=today).order_by('capacite')
+    if request.method == 'POST' and request.user.is_authenticated:
+        table_id = request.POST.get('table_id')
+        table = Table.objects.get(id=table_id)
+        client, created = Client.objects.get_or_create(
+            email=request.user.email,
+            defaults={'nom': request.user.username}
+        )
+        Reservation.objects.create(
+            client=client,
+            table=table,
+            date=today,
+            nombre_personnes=table.capacite
+        )
+        messages.success(request, f"Réservation confirmée pour aujourd'hui à la table {table.numero}!")
+        return redirect('reservation-express')
+    return render(request, 'reservation_express.html', {'tables': tables})
 
 def signup_view(request):
     if request.method == 'POST':
