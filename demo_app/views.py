@@ -128,4 +128,29 @@ def logout_view(request):
     logout(request)
     return redirect('index')
 
+def modifier_reservation_view(request, reservation_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    reservation = Reservation.objects.filter(id=reservation_id, client__email=request.user.email).first()
+    if not reservation:
+        messages.error(request, "Réservation introuvable ou non autorisée.")
+        return redirect('mes-reservations')
+    if request.method == 'POST':
+        nombre_personnes = int(request.POST.get('nombre_personnes'))
+        # Cherche une table dispo avec la bonne capacité pour la même date
+        table_disponible = Table.objects.filter(
+            capacite__gte=nombre_personnes
+        ).exclude(
+            reservation__date=reservation.date
+        ).order_by('capacite').first()
+        if table_disponible:
+            reservation.nombre_personnes = nombre_personnes
+            reservation.table = table_disponible
+            reservation.save()
+            messages.success(request, "Réservation modifiée avec succès !")
+            return redirect('mes-reservations')
+        else:
+            messages.error(request, "Aucune table disponible pour cette date et ce nombre de personnes.")
+    return render(request, 'update_reservation.html', {'reservation': reservation})
+
 

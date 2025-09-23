@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Modifier la réservation{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Modifier la réservation</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nombre_personnes" class="form-label">Nombre de personnes</label>
+            <input type="number" class="form-control" id="nombre_personnes" name="nombre_personnes" min="1" value="{{ reservation.nombre_personnes }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <a href="{% url 'mes-reservations' %}" class="btn btn-secondary ms-2">Annuler</a>
+    </form>
+    <div class="mt-4">
+        <strong>Date :</strong> {{ reservation.date }}<br>
+        <strong>Table actuelle :</strong> n°{{ reservation.table.numero }} ({{ reservation.table.capacite }} pers.)
+    </div>
+</div>
+{% endblock %}

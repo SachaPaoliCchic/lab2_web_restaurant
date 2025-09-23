@@ -20,11 +20,14 @@
                             <h5 class="card-title">Table n°{{ reservation.table.numero }}</h5>
                             <p class="card-text mb-1"><strong>Date :</strong> {{ reservation.date }}</p>
                             <p class="card-text mb-3"><strong>Nombre de personnes :</strong> {{ reservation.nombre_personnes }}</p>
-                            <form method="post" action="">
-                                {% csrf_token %}
-                                <input type="hidden" name="delete_id" value="{{ reservation.id }}">
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </form>
+                            <div class="d-flex gap-2">
+                                <form method="post" action="">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="delete_id" value="{{ reservation.id }}">
+                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                </form>
+                                <a href="{% url 'modifier-reservation' reservation.id %}" class="btn btn-warning">Modifier</a>
+                            </div>
                         </div>
                     </div>
                 </div>
