@@ -9,30 +9,54 @@
         <div class="col-md-6">
             <h2 class="mb-3">Pizzas</h2>
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Margherita
-                    <span class="badge bg-primary rounded-pill">11€</span>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-margherita')" style="cursor:pointer;">
+                    <span>Margherita</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">11€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Jambon
-                    <span class="badge bg-primary rounded-pill">12€</span>
+                <div id="desc-margherita" class="text-muted small mb-2" style="display:none;">Tomate, mozzarella, basilic frais.</div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-jambon')" style="cursor:pointer;">
+                    <span>Jambon</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">12€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Forestière
-                    <span class="badge bg-primary rounded-pill">12€</span>
+                <div id="desc-jambon" class="text-muted small mb-2" style="display:none;">Tomate, mozzarella, jambon blanc.</div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-forestiere')" style="cursor:pointer;">
+                    <span>Forestière</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">12€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Calzone
-                    <span class="badge bg-primary rounded-pill">15€</span>
+                <div id="desc-forestiere" class="text-muted small mb-2" style="display:none;">Champignons, crème, mozzarella, lardons.</div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-calzone')" style="cursor:pointer;">
+                    <span>Calzone</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">15€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Pepperoni
-                    <span class="badge bg-primary rounded-pill">14€</span>
+                <div id="desc-calzone" class="text-muted small mb-2" style="display:none;">Pizza pliée, tomate, mozzarella, jambon, œuf.</div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-pepperoni')" style="cursor:pointer;">
+                    <span>Pepperoni</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">14€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Quatre Fromages
-                    <span class="badge bg-primary rounded-pill">15€</span>
+                <div id="desc-pepperoni" class="text-muted small mb-2" style="display:none;">Tomate, mozzarella, pepperoni épicé.</div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-4fromages')" style="cursor:pointer;">
+                    <span>Quatre Fromages</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">15€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
+                <div id="desc-4fromages" class="text-muted small mb-2" style="display:none;">Mozzarella, chèvre, bleu, parmesan.</div>
             </ul>
         </div>
 
@@ -40,32 +64,68 @@
         <div class="col-md-6">
             <h2 class="mb-3">Pâtes</h2>
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Spaghetti Bolognaise
-                    <span class="badge bg-primary rounded-pill">12€</span>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-bolo')" style="cursor:pointer;">
+                    <span>Spaghetti Bolognaise</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">12€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Carbonara
-                    <span class="badge bg-primary rounded-pill">14€</span>
+                <div id="desc-bolo" class="text-muted small mb-2" style="display:none;">Sauce tomate maison, viande hachée, parmesan.</div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-carbo')" style="cursor:pointer;">
+                    <span>Carbonara</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">14€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Raviolli
-                    <span class="badge bg-primary rounded-pill">13€</span>
+                <div id="desc-carbo" class="text-muted small mb-2" style="display:none;">Crème, lardons, œuf, parmesan.</div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-raviolli')" style="cursor:pointer;">
+                    <span>Raviolli</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">13€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Mac & Cheese
-                    <span class="badge bg-primary rounded-pill">11€</span>
+                <div id="desc-raviolli" class="text-muted small mb-2" style="display:none;">Pâtes farcies ricotta et épinards, sauce tomate.</div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-mac')" style="cursor:pointer;">
+                    <span>Mac & Cheese</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">11€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Penne Arrabiata
-                    <span class="badge bg-primary rounded-pill">12€</span>
+                <div id="desc-mac" class="text-muted small mb-2" style="display:none;">Macaroni, sauce cheddar maison.</div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-penne')" style="cursor:pointer;">
+                    <span>Penne Arrabiata</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">12€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Lasagnes
-                    <span class="badge bg-primary rounded-pill">16€</span>
+                <div id="desc-penne" class="text-muted small mb-2" style="display:none;">Sauce tomate épicée, ail, basilic.</div>
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-lasagnes')" style="cursor:pointer;">
+                    <span>Lasagnes</span>
+                    <span>
+                        <span class="badge bg-primary rounded-pill">16€</span>
+                        <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
+                    </span>
                 </li>
+                <div id="desc-lasagnes" class="text-muted small mb-2" style="display:none;">Viande hachée, sauce tomate, béchamel, fromage.</div>
             </ul>
         </div>
     </div>
 </div>
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<script>
+function toggleDesc(id) {
+    var el = document.getElementById(id);
+    if (el.style.display === "none") {
+        el.style.display = "block";
+    } else {
+        el.style.display = "none";
+    }
+}
+</script>
 {% endblock %}
