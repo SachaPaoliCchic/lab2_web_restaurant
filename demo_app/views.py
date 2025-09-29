@@ -155,3 +155,40 @@ def modifier_reservation_view(request, reservation_id):
     return render(request, 'update_reservation.html', {'reservation': reservation})
 
 
+def profil_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    client = Client.objects.filter(email=request.user.email).first()
+    return render(request, 'profil.html', {'client': client})
+
+def update_profile_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    client = Client.objects.filter(email=request.user.email).first()
+    if request.method == 'POST':
+        nom = request.POST.get('nom')
+        email = request.POST.get('email')
+        image = request.FILES.get('image')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        user = request.user
+        # Vérifie d'abord la cohérence des mots de passe
+        if password1 or password2:
+            if password1 != password2:
+                messages.error(request, "Les mots de passe ne correspondent pas.")
+                return render(request, 'update_profile.html', {'client': client})
+        if client:
+            client.nom = nom
+            client.email = email
+            if image:
+                client.image = image
+            client.save()
+            # Mise à jour du mot de passe si renseigné et confirmé
+            if password1 and password1 == password2:
+                user.set_password(password1)
+                user.save()
+                messages.success(request, "Mot de passe modifié ! Veuillez vous reconnecter.")
+                return redirect('login')
+            messages.success(request, "Profil mis à jour !")
+            return redirect('profil')
+    return render(request, 'update_profile.html', {'client': client})

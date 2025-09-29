@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Mon profil{% endblock %}
+{% block content %}
+<div class="container mt-5">
+	<h1 class="mb-4 text-center">Mon profil</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+	{% if client %}
+		<div class="card mx-auto" style="max-width: 400px;">
+			<div class="card-body text-center">
+				{% if client.image %}
+					<img src="{{ client.image.url }}" class="rounded-circle mb-3 d-block mx-auto" style="width:120px;height:120px;object-fit:cover;">
+				{% else %}
+					<div class="mb-3">Aucune photo de profil</div>
+				{% endif %}
+				<h5 class="card-title mt-2">{{ client.nom }}</h5>
+				<p class="card-text">{{ client.email }}</p>
+                <a href="{% url 'update_profile' %}" class="btn btn-primary mt-3">Modifier le profil</a>
+			</div>
+		</div>
+	{% else %}
+		<div class="alert alert-warning">Aucune information trouvée.</div>
+	{% endif %}
+</div>
+{% endblock %}
