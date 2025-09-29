@@ -32,6 +32,38 @@
                     </div>
                 </div>
             {% endfor %}
+            <!-- Pagination -->
+            <div class="col-12">
+                <nav aria-label="Pagination">
+                    <ul class="pagination justify-content-center mt-4">
+                        {% if reservations.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ reservations.previous_page_number }}">Précédent</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <span class="page-link">Précédent</span>
+                            </li>
+                        {% endif %}
+                        {% for num in reservations.paginator.page_range %}
+                            {% if reservations.number == num %}
+                                <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if reservations.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ reservations.next_page_number }}">Suivant</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <span class="page-link">Suivant</span>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
         {% else %}
             <div class="alert alert-info">Aucune réservation trouvée.</div>
         {% endif %}

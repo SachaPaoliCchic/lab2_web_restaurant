@@ -6,6 +6,7 @@ from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -20,30 +21,26 @@ class AboutView(TemplateView):
 
 def reservation_client_view(request):
     if request.method == 'POST':
-        # Récupérer les données du formulaire
-        nom = request.POST.get('nom')
-        email = request.POST.get('email')
+        if request.user.is_authenticated:
+            nom = request.user.username
+            email = request.user.email
+        else:
+            nom = request.POST.get('nom')
+            email = request.POST.get('email')
         nombre_personnes = int(request.POST.get('nombre_personnes'))
         date_str = request.POST.get('date')
-        
-        # Convertir la date
         date = datetime.strptime(date_str, '%Y-%m-%d').date()
-        
-        # Créer ou récupérer le client
         client, created = Client.objects.get_or_create(
             email=email,
             defaults={'nom': nom}
         )
-        
-        # Trouver une table disponible avec la capacité suffisante
         table_disponible = Table.objects.filter(
             capacite__gte=nombre_personnes
         ).exclude(
             reservation__date=date
         ).first()
-        
         if table_disponible:
-            reservation = Reservation.objects.create(
+            Reservation.objects.create(
                 client=client,
                 table=table_disponible,
                 date=date,
@@ -53,7 +50,6 @@ def reservation_client_view(request):
             return redirect('reservation-client')
         else:
             messages.error(request, 'Aucune table disponible pour cette date et ce nombre de personnes.')
-    
     return render(request, 'reservation_client.html')
 
 def reservation_express_view(request):
@@ -86,7 +82,10 @@ def MesreservationsView(request):
             Reservation.objects.filter(id=delete_id, client=client).delete()
             messages.success(request, "Réservation supprimée.")
             return redirect('mes-reservations')
-    reservations = Reservation.objects.filter(client=client).order_by('-date') if client else []
+    reservations_list = Reservation.objects.filter(client=client).order_by('-date') if client else []
+    paginator = Paginator(reservations_list, 5)  # 5 réservations par page
+    page_number = request.GET.get('page')
+    reservations = paginator.get_page(page_number)
     return render(request, 'mes_reservations.html', {'reservations': reservations})
 
 def signup_view(request):
