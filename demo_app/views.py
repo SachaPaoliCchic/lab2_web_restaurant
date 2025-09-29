@@ -95,6 +95,7 @@ def signup_view(request):
         email = request.POST.get('email')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
+        image = request.FILES.get('image')
         if password1 != password2:
             messages.error(request, "Les mots de passe ne correspondent pas.")
         elif User.objects.filter(username=username).exists():
@@ -103,6 +104,7 @@ def signup_view(request):
             messages.error(request, "Cet email est déjà utilisé.")
         else:
             user = User.objects.create_user(username=username, email=email, password=password1)
+            Client.objects.create(nom=username, email=email, image=image)
             messages.success(request, "Inscription réussie ! Connectez-vous.")
             return redirect('login')
     return render(request, 'register.html')

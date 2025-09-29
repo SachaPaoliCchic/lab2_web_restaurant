@@ -4,6 +4,7 @@ from django.db import models
 class Client(models.Model):
     nom = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
+    image = models.ImageField(upload_to='client_images/', null=True, blank=True)
 
 class Table(models.Model):
     numero = models.IntegerField(unique=True)
