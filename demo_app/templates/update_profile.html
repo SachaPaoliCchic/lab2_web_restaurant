@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}Modifier mon profil{% endblock %}
 {% block content %}
 <div class="container mt-5">
-    <h1 class="mb-4 text-center">Modifier mon profil</h1>
+    <h1 class="mb-4 text-center">{% trans "Modifier mon profil" %}</h1>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -14,29 +15,29 @@
     <form method="post" enctype="multipart/form-data" class="mx-auto" style="max-width: 400px;">
         {% csrf_token %}
         <div class="mb-3">
-            <label for="nom" class="form-label">Nom</label>
+            <label for="nom" class="form-label">{% trans "Nom" %}</label>
             <input type="text" class="form-control" id="nom" name="nom" value="{{ client.nom }}" required>
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
+            <label for="email" class="form-label">{% trans "Email" %}</label>
             <input type="email" class="form-control" id="email" name="email" value="{{ client.email }}" required>
         </div>
         <div class="mb-3">
-            <label for="password1" class="form-label">Nouveau mot de passe</label>
+            <label for="password1" class="form-label">{% trans "Nouveau mot de passe" %}</label>
             <input type="password" class="form-control" id="password1" name="password1">
         </div>
         <div class="mb-3">
-            <label for="password2" class="form-label">Confirmer le mot de passe</label>
+            <label for="password2" class="form-label">{% trans "Confirmer le mot de passe" %}</label>
             <input type="password" class="form-control" id="password2" name="password2">
         </div>
         <div class="mb-3">
-            <label for="image" class="form-label">Photo de profil</label>
+            <label for="image" class="form-label">{% trans "Photo de profil" %}</label>
             {% if client.image %}
                 <img src="{{ client.image.url }}" class="rounded mb-2" style="width:80px;height:80px;object-fit:cover;">
             {% endif %}
             <input type="file" class="form-control" id="image" name="image" accept="image/*">
         </div>
-        <button type="submit" class="btn btn-primary w-100">Enregistrer les modifications</button>
+        <button type="submit" class="btn btn-primary w-100">{% trans "Enregistrer les modifications" %}</button>
     </form>
 </div>
 {% endblock %}

@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}Réserver une table{% endblock %}
 {% block content %}
 <div class="container mt-5">
-	<h1 class="mb-4">Réserver une table</h1>
+	<h1 class="mb-4">{% trans "Réserver une table" %}</h1>
 	
 	<!-- Messages de succès/erreur -->
 	{% if messages %}
@@ -17,22 +18,22 @@
 	<form method="post">
 		{% csrf_token %}
 		<div class="mb-3">
-			<label for="nom" class="form-label">Nom</label>
+			<label for="nom" class="form-label">{% trans "Nom" %}</label>
 			<input type="text" class="form-control" id="nom" name="nom" required>
 		</div>
 		<div class="mb-3">
-			<label for="email" class="form-label">Email</label>
+			<label for="email" class="form-label">{% trans "Email" %}</label>
 			<input type="email" class="form-control" id="email" name="email" required>
 		</div>
 		<div class="mb-3">
-			<label for="nombre_personnes" class="form-label">Nombre de personnes</label>
+			<label for="nombre_personnes" class="form-label">{% trans "Nombre de personnes" %}</label>
 			<input type="number" class="form-control" id="nombre_personnes" name="nombre_personnes" min="1" required>
 		</div>
 		<div class="mb-3">
-			<label for="date" class="form-label">Date</label>
+			<label for="date" class="form-label">{% trans "Date" %}</label>
 			<input type="date" class="form-control" id="date" name="date" required>
 		</div>
-		<button type="submit" class="btn btn-success">Réserver</button>
+		<button type="submit" class="btn btn-success">{% trans "Réserver" %}</button>
 	</form>
 </div>
 {% endblock %}

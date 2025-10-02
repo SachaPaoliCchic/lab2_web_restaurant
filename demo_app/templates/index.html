@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Accueil{% endblock %}
-
+{% load i18n %}
 {% block content %}
 <style>
     .navbar {
@@ -41,7 +41,7 @@
 
 <div class="fullscreen-bg">
     <div class="bottom-overlay">
-        <a href="{% url 'about' %}" class="btn btn-primary btn-lg">About us</a>
+        <a href="{% url 'about' %}" class="btn btn-primary btn-lg">{% trans "About us" %}</a>
     </div>
 </div>
 {% endblock %}

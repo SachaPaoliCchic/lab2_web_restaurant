@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}Mes réservations{% endblock %}
 {% block content %}
 <div class="container mt-5">
-    <h1 class="mb-4">Mes réservations</h1>
+    <h1 class="mb-4">{% trans "Mes réservations" %}</h1>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -17,16 +18,16 @@
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card shadow">
                         <div class="card-body">
-                            <h5 class="card-title">Table n°{{ reservation.table.numero }}</h5>
-                            <p class="card-text mb-1"><strong>Date :</strong> {{ reservation.date }}</p>
-                            <p class="card-text mb-3"><strong>Nombre de personnes :</strong> {{ reservation.nombre_personnes }}</p>
+                            <h5 class="card-title">{% blocktrans with numero=reservation.table.numero %}Table n°{{ numero }}{% endblocktrans %}</h5>
+                            <p class="card-text mb-1"><strong>{% trans "Date" %} :</strong> {{ reservation.date }}</p>
+                            <p class="card-text mb-3"><strong>{% trans "Nombre de personnes" %} :</strong> {{ reservation.nombre_personnes }}</p>
                             <div class="d-flex gap-2">
                                 <form method="post" action="">
                                     {% csrf_token %}
                                     <input type="hidden" name="delete_id" value="{{ reservation.id }}">
-                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    <button type="submit" class="btn btn-danger">{% trans "Supprimer" %}</button>
                                 </form>
-                                <a href="{% url 'modifier-reservation' reservation.id %}" class="btn btn-warning">Modifier</a>
+                                <a href="{% url 'modifier-reservation' reservation.id %}" class="btn btn-warning">{% trans "Modifier" %}</a>
                             </div>
                         </div>
                     </div>
@@ -38,11 +39,11 @@
                     <ul class="pagination justify-content-center mt-4">
                         {% if reservations.has_previous %}
                             <li class="page-item">
-                                <a class="page-link" href="?page={{ reservations.previous_page_number }}">Précédent</a>
+                                <a class="page-link" href="?page={{ reservations.previous_page_number }}">{% trans "Précédent" %}</a>
                             </li>
                         {% else %}
                             <li class="page-item disabled">
-                                <span class="page-link">Précédent</span>
+                                <span class="page-link">{% trans "Précédent" %}</span>
                             </li>
                         {% endif %}
                         {% for num in reservations.paginator.page_range %}
@@ -54,18 +55,18 @@
                         {% endfor %}
                         {% if reservations.has_next %}
                             <li class="page-item">
-                                <a class="page-link" href="?page={{ reservations.next_page_number }}">Suivant</a>
+                                <a class="page-link" href="?page={{ reservations.next_page_number }}">{% trans "Suivant" %}</a>
                             </li>
                         {% else %}
                             <li class="page-item disabled">
-                                <span class="page-link">Suivant</span>
+                                <span class="page-link">{% trans "Suivant" %}</span>
                             </li>
                         {% endif %}
                     </ul>
                 </nav>
             </div>
         {% else %}
-            <div class="alert alert-info">Aucune réservation trouvée.</div>
+            <div class="alert alert-info">{% trans "Aucune réservation trouvée." %}</div>
         {% endif %}
     </div>
 </div>

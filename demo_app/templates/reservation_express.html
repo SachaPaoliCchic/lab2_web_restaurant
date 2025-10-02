@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}Réservation express{% endblock %}
 {% block content %}
 <div class="container mt-5">
-    <h1 class="mb-4">Tables disponibles aujourd'hui</h1>
+    <h1 class="mb-4">{% trans "Tables disponibles aujourd'hui" %}</h1>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -19,15 +20,15 @@
                     <div class="form-check mb-2">
                         <input class="form-check-input" type="radio" name="table_id" id="table{{ table.id }}" value="{{ table.id }}" required>
                         <label class="form-check-label" for="table{{ table.id }}">
-                            Table n°{{ table.numero }} ({{ table.capacite }} personnes)
+                            {% blocktrans with numero=table.numero capacite=table.capacite %}Table n°{{ numero }} ({{ capacite }} personnes){% endblocktrans %}
                         </label>
                     </div>
                 {% endfor %}
             {% else %}
-                <div class="alert alert-warning">Aucune table disponible aujourd'hui.</div>
+                <div class="alert alert-warning">{% trans "Aucune table disponible aujourd'hui." %}</div>
             {% endif %}
         </div>
-        <button type="submit" class="btn btn-success">Réserver</button>
+        <button type="submit" class="btn btn-success">{% trans "Réserver" %}</button>
     </form>
 </div>
 {% endblock %}

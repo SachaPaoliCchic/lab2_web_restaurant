@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Menu{% endblock %}
 {% block content %}
+{% load i18n %}
 <div class="container mt-5">
-    <h1 class="mb-4 text-center">Menu du restaurant</h1>
+    <h1 class="mb-4 text-center">{% trans "Menu du restaurant" %}</h1>
 
     <div class="row">
         <!-- Section Pizzas -->
         <div class="col-md-6">
-            <h2 class="mb-3">Pizzas</h2>
+            <h2 class="mb-3">{% trans "Pizzas" %}</h2>
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-margherita')" style="cursor:pointer;">
-                    <span>Margherita</span>
+                    <span>{% trans "Margherita" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">11€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -18,7 +19,7 @@
                 </li>
                 <div id="desc-margherita" class="text-muted small mb-2" style="display:none;">Tomate, mozzarella, basilic frais.</div>
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-jambon')" style="cursor:pointer;">
-                    <span>Jambon</span>
+                    <span>{% trans "Jambon" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">12€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -26,7 +27,7 @@
                 </li>
                 <div id="desc-jambon" class="text-muted small mb-2" style="display:none;">Tomate, mozzarella, jambon blanc.</div>
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-forestiere')" style="cursor:pointer;">
-                    <span>Forestière</span>
+                    <span>{% trans "Forestière" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">12€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -34,7 +35,7 @@
                 </li>
                 <div id="desc-forestiere" class="text-muted small mb-2" style="display:none;">Champignons, crème, mozzarella, lardons.</div>
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-calzone')" style="cursor:pointer;">
-                    <span>Calzone</span>
+                    <span>{% trans "Calzone" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">15€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -42,7 +43,7 @@
                 </li>
                 <div id="desc-calzone" class="text-muted small mb-2" style="display:none;">Pizza pliée, tomate, mozzarella, jambon, œuf.</div>
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-pepperoni')" style="cursor:pointer;">
-                    <span>Pepperoni</span>
+                    <span>{% trans "Pepperoni" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">14€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -50,7 +51,7 @@
                 </li>
                 <div id="desc-pepperoni" class="text-muted small mb-2" style="display:none;">Tomate, mozzarella, pepperoni épicé.</div>
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-4fromages')" style="cursor:pointer;">
-                    <span>Quatre Fromages</span>
+                    <span>{% trans "Quatre Fromages" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">15€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -62,10 +63,10 @@
 
         <!-- Section Pâtes -->
         <div class="col-md-6">
-            <h2 class="mb-3">Pâtes</h2>
+            <h2 class="mb-3">{% trans "Pâtes" %}</h2>
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-bolo')" style="cursor:pointer;">
-                    <span>Spaghetti Bolognaise</span>
+                    <span>{% trans "Spaghetti Bolognaise" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">12€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -73,7 +74,7 @@
                 </li>
                 <div id="desc-bolo" class="text-muted small mb-2" style="display:none;">Sauce tomate maison, viande hachée, parmesan.</div>
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-carbo')" style="cursor:pointer;">
-                    <span>Carbonara</span>
+                    <span>{% trans "Carbonara" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">14€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -81,7 +82,7 @@
                 </li>
                 <div id="desc-carbo" class="text-muted small mb-2" style="display:none;">Crème, lardons, œuf, parmesan.</div>
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-raviolli')" style="cursor:pointer;">
-                    <span>Raviolli</span>
+                    <span>{% trans "Raviolli" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">13€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -89,7 +90,7 @@
                 </li>
                 <div id="desc-raviolli" class="text-muted small mb-2" style="display:none;">Pâtes farcies ricotta et épinards, sauce tomate.</div>
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-mac')" style="cursor:pointer;">
-                    <span>Mac & Cheese</span>
+                    <span>{% trans "Mac & Cheese" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">11€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -97,7 +98,7 @@
                 </li>
                 <div id="desc-mac" class="text-muted small mb-2" style="display:none;">Macaroni, sauce cheddar maison.</div>
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-penne')" style="cursor:pointer;">
-                    <span>Penne Arrabiata</span>
+                    <span>{% trans "Penne Arrabiata" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">12€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>
@@ -105,7 +106,7 @@
                 </li>
                 <div id="desc-penne" class="text-muted small mb-2" style="display:none;">Sauce tomate épicée, ail, basilic.</div>
                 <li class="list-group-item d-flex justify-content-between align-items-center" onclick="toggleDesc('desc-lasagnes')" style="cursor:pointer;">
-                    <span>Lasagnes</span>
+                    <span>{% trans "Lasagnes" %}</span>
                     <span>
                         <span class="badge bg-primary rounded-pill">16€</span>
                         <span class="ms-2" title="Voir la description"><i class="bi bi-chevron-down"></i></span>

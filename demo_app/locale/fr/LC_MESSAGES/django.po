@@ -1,0 +1,282 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-02 17:12+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\demo_app\templates\about.html:10
+msgid "Pizza De La Mamma"
+msgstr ""
+
+#: .\demo_app\templates\about.html:11
+msgid ""
+"Bienvenue dans notre pizzeria familiale ! Ici, on prépare chaque pizza et "
+"chaque plat de pasta avec amour, des ingrédients frais et une ambiance "
+"chaleureuse. Notre équipe vous accueille comme à la maison, que ce soit pour "
+"un dîner entre amis, un repas en famille ou une soirée chill."
+msgstr ""
+
+#: .\demo_app\templates\about.html:13
+msgid "Notre philosophie"
+msgstr ""
+
+#: .\demo_app\templates\about.html:14
+msgid ""
+"Chez Pizza De La Mamma, on croit que la bonne cuisine rassemble les gens. "
+"Nos recettes sont inspirées de la tradition italienne, mais toujours avec "
+"une touche maison. Venez goûter nos pizzas croustillantes, nos pâtes "
+"généreuses et laissez-vous porter par l'ambiance détendue du restaurant."
+msgstr ""
+
+#: .\demo_app\templates\about.html:16
+#: .\demo_app\templates\reservation_client.html:5
+msgid "Réserver une table"
+msgstr ""
+
+#: .\demo_app\templates\about.html:17
+msgid "Voir le menu"
+msgstr ""
+
+#: .\demo_app\templates\base.html:36
+msgid "Menu"
+msgstr ""
+
+#: .\demo_app\templates\base.html:39
+#: .\demo_app\templates\reservation_client.html:35
+#: .\demo_app\templates\reservation_express.html:30
+msgid "Réserver"
+msgstr ""
+
+#: .\demo_app\templates\base.html:42
+msgid "Réservation express"
+msgstr ""
+
+#: .\demo_app\templates\base.html:45
+#: .\demo_app\templates\mes_reservations.html:5
+msgid "Mes réservations"
+msgstr ""
+
+#: .\demo_app\templates\base.html:53
+msgid "Déconnexion"
+msgstr ""
+
+#: .\demo_app\templates\base.html:57 .\demo_app\templates\connection.html:5
+msgid "Connexion"
+msgstr ""
+
+#: .\demo_app\templates\base.html:60 .\demo_app\templates\register.html:5
+msgid "Inscription"
+msgstr ""
+
+#: .\demo_app\templates\connection.html:9 .\demo_app\templates\register.html:13
+#: .\demo_app\templates\reservation_client.html:24
+#: .\demo_app\templates\update_profile.html:21
+msgid "Email"
+msgstr ""
+
+#: .\demo_app\templates\connection.html:13
+#: .\demo_app\templates\register.html:17
+msgid "Mot de passe"
+msgstr ""
+
+#: .\demo_app\templates\connection.html:16
+msgid "Se connecter"
+msgstr ""
+
+#: .\demo_app\templates\index.html:44
+msgid "About us"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:6
+msgid "Menu du restaurant"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:11
+msgid "Pizzas"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:14
+msgid "Margherita"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:22
+msgid "Jambon"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:30
+msgid "Forestière"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:38
+msgid "Calzone"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:46
+msgid "Pepperoni"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:54
+msgid "Quatre Fromages"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:66
+msgid "Pâtes"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:69
+msgid "Spaghetti Bolognaise"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:77
+msgid "Carbonara"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:85
+msgid "Raviolli"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:93
+msgid "Mac & Cheese"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:101
+msgid "Penne Arrabiata"
+msgstr ""
+
+#: .\demo_app\templates\menu.html:109
+msgid "Lasagnes"
+msgstr ""
+
+#: .\demo_app\templates\mes_reservations.html:20
+#, python-format
+msgid "Table n°%(reservation.table.numero)s"
+msgstr ""
+
+#: .\demo_app\templates\mes_reservations.html:21
+#: .\demo_app\templates\reservation_client.html:32
+#: .\demo_app\templates\update_reservation.html:24
+msgid "Date"
+msgstr ""
+
+#: .\demo_app\templates\mes_reservations.html:22
+#: .\demo_app\templates\reservation_client.html:28
+#: .\demo_app\templates\update_reservation.html:17
+msgid "Nombre de personnes"
+msgstr ""
+
+#: .\demo_app\templates\mes_reservations.html:27
+msgid "Supprimer"
+msgstr ""
+
+#: .\demo_app\templates\mes_reservations.html:29
+msgid "Modifier"
+msgstr ""
+
+#: .\demo_app\templates\mes_reservations.html:41
+#: .\demo_app\templates\mes_reservations.html:45
+msgid "Précédent"
+msgstr ""
+
+#: .\demo_app\templates\mes_reservations.html:57
+#: .\demo_app\templates\mes_reservations.html:61
+msgid "Suivant"
+msgstr ""
+
+#: .\demo_app\templates\mes_reservations.html:68
+msgid "Aucune réservation trouvée."
+msgstr ""
+
+#: .\demo_app\templates\profil.html:5
+msgid "Mon profil"
+msgstr ""
+
+#: .\demo_app\templates\profil.html:20
+msgid "Aucune photo de profil"
+msgstr ""
+
+#: .\demo_app\templates\profil.html:24
+msgid "Modifier le profil"
+msgstr ""
+
+#: .\demo_app\templates\profil.html:28
+msgid "Aucune information trouvée."
+msgstr ""
+
+#: .\demo_app\templates\register.html:9
+#: .\demo_app\templates\reservation_client.html:20
+#: .\demo_app\templates\update_profile.html:17
+msgid "Nom"
+msgstr ""
+
+#: .\demo_app\templates\register.html:21
+#: .\demo_app\templates\update_profile.html:29
+msgid "Confirmer le mot de passe"
+msgstr ""
+
+#: .\demo_app\templates\register.html:25
+#: .\demo_app\templates\update_profile.html:33
+msgid "Photo de profil"
+msgstr ""
+
+#: .\demo_app\templates\register.html:28
+msgid "S'inscrire"
+msgstr ""
+
+#: .\demo_app\templates\reservation_express.html:5
+msgid "Tables disponibles aujourd'hui"
+msgstr ""
+
+#: .\demo_app\templates\reservation_express.html:22
+#, python-format
+msgid "Table n°%(table.numero)s (%(table.capacite)s personnes)"
+msgstr ""
+
+#: .\demo_app\templates\reservation_express.html:27
+msgid "Aucune table disponible aujourd'hui."
+msgstr ""
+
+#: .\demo_app\templates\update_profile.html:5
+msgid "Modifier mon profil"
+msgstr ""
+
+#: .\demo_app\templates\update_profile.html:25
+msgid "Nouveau mot de passe"
+msgstr ""
+
+#: .\demo_app\templates\update_profile.html:39
+msgid "Enregistrer les modifications"
+msgstr ""
+
+#: .\demo_app\templates\update_reservation.html:5
+msgid "Modifier la réservation"
+msgstr ""
+
+#: .\demo_app\templates\update_reservation.html:20
+msgid "Enregistrer"
+msgstr ""
+
+#: .\demo_app\templates\update_reservation.html:21
+msgid "Annuler"
+msgstr ""
+
+#: .\demo_app\templates\update_reservation.html:25
+msgid "Table actuelle"
+msgstr ""
+
+#: .\demo_app\templates\update_reservation.html:25
+msgid "pers."
+msgstr ""

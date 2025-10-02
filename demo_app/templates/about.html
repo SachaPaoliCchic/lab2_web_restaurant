@@ -2,18 +2,19 @@
 {% load static %}
 {% block title %}À propos{% endblock %}
 {% block content %}
+{% load i18n %}
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
             <img src="{% static 'img/logo_pizza-removebg-preview.png' %}" alt="Logo" style="height:80px; margin-bottom:20px;">
-            <h1 class="mb-4">Pizza De La Mamma</h1>
-            <p class="lead mb-4">Bienvenue dans notre pizzeria familiale ! Ici, on prépare chaque pizza et chaque plat de pasta avec amour, des ingrédients frais et une ambiance chaleureuse. Notre équipe vous accueille comme à la maison, que ce soit pour un dîner entre amis, un repas en famille ou une soirée chill.</p>
+            <h1 class="mb-4">{% trans "Pizza De La Mamma" %}</h1>
+            <p class="lead mb-4">{% trans "Bienvenue dans notre pizzeria familiale ! Ici, on prépare chaque pizza et chaque plat de pasta avec amour, des ingrédients frais et une ambiance chaleureuse. Notre équipe vous accueille comme à la maison, que ce soit pour un dîner entre amis, un repas en famille ou une soirée chill." %}</p>
             <hr class="my-4">
-            <h4 class="mb-3">Notre philosophie</h4>
-            <p>Chez Pizza De La Mamma, on croit que la bonne cuisine rassemble les gens. Nos recettes sont inspirées de la tradition italienne, mais toujours avec une touche maison. Venez goûter nos pizzas croustillantes, nos pâtes généreuses et laissez-vous porter par l'ambiance détendue du restaurant.</p>
+            <h4 class="mb-3">{% trans "Notre philosophie" %}</h4>
+            <p>{% trans "Chez Pizza De La Mamma, on croit que la bonne cuisine rassemble les gens. Nos recettes sont inspirées de la tradition italienne, mais toujours avec une touche maison. Venez goûter nos pizzas croustillantes, nos pâtes généreuses et laissez-vous porter par l'ambiance détendue du restaurant." %}</p>
             <div class="mt-4">
-                <a href="{% url 'reservation-client' %}" class="btn btn-success me-2">Réserver une table</a>
-                <a href="{% url 'menu' %}" class="btn btn-outline-primary">Voir le menu</a>
+                <a href="{% url 'reservation-client' %}" class="btn btn-success me-2">{% trans "Réserver une table" %}</a>
+                <a href="{% url 'menu' %}" class="btn btn-outline-primary">{% trans "Voir le menu" %}</a>
             </div>
         </div>
     </div>

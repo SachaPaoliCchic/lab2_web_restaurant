@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -30,38 +30,46 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center flex-row gap-2">
                     {% if user.is_authenticated %}
-                    <li class="nav-item2">
-                        <a class="nav-link" href="{% url 'menu' %}">Menu</a>
-                    </li>
-                    <li class="nav-item2">
-                        <a class="nav-link" href="{% url 'reservation-client' %}">Réserver</a>
-                    </li>
-                    <li class="nav-item2">
-                        <a class="nav-link" href="{% url 'reservation-express' %}">Réserveration express</a>
-                    </li>
-                    <li class="nav-item2">
-                        <a class="nav-link" href="{% url 'mes-reservations' %}">Mes réservations</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'menu' %}">{% trans "Menu" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'reservation-client' %}">{% trans "Réserver" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'reservation-express' %}">{% trans "Réservation express" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'mes-reservations' %}">{% trans "Mes réservations" %}</a>
+                        </li>
                     {% endif %}
-                </ul>
-                <ul class="navbar-nav ms-3">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'profil' %}">{{ user.username }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Déconnexion</a>
+                            <a class="nav-link" href="{% url 'logout' %}">{% trans "Déconnexion" %}</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Connexion</a>
+                            <a class="nav-link" href="{% url 'login' %}">{% trans "Connexion" %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'signup' %}">Inscription</a>
+                            <a class="nav-link" href="{% url 'signup' %}">{% trans "Inscription" %}</a>
                         </li>
                     {% endif %}
+                    <li class="nav-item">
+                        <form action="/set_language/" method="post" class="d-flex align-items-center" style="margin-bottom:0;">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.path }}">
+                            <select name="language" onchange="this.form.submit()" class="form-select form-select-sm ms-2" style="width:auto; min-width:110px; border-radius:20px; background:#fff; border:1px solid #ccc;">
+                                <option value="fr" {% if LANGUAGE_CODE == 'fr' %}selected{% endif %}>Français</option>
+                                <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                            </select>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>

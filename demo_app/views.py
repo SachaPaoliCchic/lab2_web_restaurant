@@ -1,3 +1,7 @@
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.translation import activate
+from django.http import HttpResponseRedirect
+import logging
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.generic import TemplateView
@@ -83,7 +87,7 @@ def MesreservationsView(request):
             messages.success(request, "Réservation supprimée.")
             return redirect('mes-reservations')
     reservations_list = Reservation.objects.filter(client=client).order_by('-date') if client else []
-    paginator = Paginator(reservations_list, 5)  # 5 réservations par page
+    paginator = Paginator(reservations_list, 3)  # 3 réservations par page
     page_number = request.GET.get('page')
     reservations = paginator.get_page(page_number)
     return render(request, 'mes_reservations.html', {'reservations': reservations})
@@ -192,3 +196,21 @@ def update_profile_view(request):
             messages.success(request, "Profil mis à jour !")
             return redirect('profil')
     return render(request, 'update_profile.html', {'client': client})
+
+@csrf_exempt
+def set_language(request):
+    print(f"POST: {request.POST}")
+    logging.warning(f"POST: {request.POST}")
+    lang_code = request.POST.get('language')
+    next_url = request.POST.get('next', '/')
+    print(f"Langue demandée: {lang_code}, next: {next_url}")
+    logging.warning(f"Langue demandée: {lang_code}, next: {next_url}")
+    if lang_code:
+        activate(lang_code)
+        request.session['django_language'] = lang_code
+        response = HttpResponseRedirect(next_url)
+        response.set_cookie('django_language', lang_code)
+        print(f"Cookie et session django_language mis à: {lang_code}")
+        logging.warning(f"Cookie et session django_language mis à: {lang_code}")
+        return response
+    return HttpResponseRedirect(next_url)

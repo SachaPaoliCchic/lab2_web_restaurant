@@ -1,5 +1,5 @@
     
-from django.urls import path
+from django.urls import include, path
 from . import views
 
 urlpatterns = [
@@ -15,4 +15,6 @@ urlpatterns = [
     path('logout/', views.logout_view, name="logout"),
     path('profil/', views.profil_view, name="profil"),
     path('profil/modifier/', views.update_profile_view, name="update_profile"),
+    #path('i18n/', include('django.conf.urls.i18n')),
+    path('set_language/', views.set_language, name='set_language'),
 ]
